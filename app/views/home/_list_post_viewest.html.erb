@@ -1,0 +1,38 @@
+     <div class="card list-posts-views" >
+        <div class="card-body">
+            <h4 class="card-title mb-4">Bài viết nổi bật ahihi</h4>
+
+            <div class="table-responsive">
+                <table class="table table-centered ">
+                    <tbody>
+                    <% @posts_viewest.each do |post| %>
+                        <tr>
+                            <td>
+                                <h5 class="font-size-14 m-0"><a href="<%= post_path(post) %>" class="text-dark"><%= post.title %></a>
+                                </h5>
+                                    <ul class="list-inline float-sm-left my-2 w-100">
+                                    <li class="list-inline-item">
+                                        <i class="mdi mdi-eye-outline " data-toggle="tooltip"
+                                            data-original-title="View"></i> <%= post.views %>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <i class="mdi mdi-comment-text-multiple  " data-toggle="tooltip"
+                                            data-original-title="Comment"></i> <%= post.comments.count %>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <i class="mdi mdi-table-edit" data-toggle="tooltip"
+                                            data-original-title="Point"></i> <%= post.vote_point %>
+                                    </li>
+                                </ul>
+                                <ul class="list-inline float-sm-left my-2 w-100">
+                                    <a href="#" class="text-dark"><%= post.user.name %></a>
+                                </ul>
+                            </td>
+
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

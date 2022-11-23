@@ -1,0 +1,44 @@
+ <!-- Button to Open the Modal -->
+ <div class="text-center py-3">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Thay đổi ảnh
+    </button>
+ </div>
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Cập nhật ảnh</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <%= form_for [:admin, @user], html: {class: "outer-repeater", remote: false} do |f| %>
+                 <div class="form-group row mb-4">
+                        <div class="col-lg-10">
+                            <label for="taskname" class="col-form-label col-lg-2">Hình ảnh</label>
+                            <div class="col-lg-10">
+                                    <%= f.file_field :avatar %>
+                                    <% if @user.avatar.present?   %>
+                                    <%= image_tag @user.default_avatar, class: 'current-img' %>
+                                    <% end %>
+                                    <img id="blah" class="d-none" src="#" alt="your image"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                            <div class="col-lg-10 modal-footer">
+                               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary new-post">Cập nhật</button>
+                            </div>
+                    </div>
+            <% end %>
+        </div>
+    
+      </div>
+    </div>
+  </div>

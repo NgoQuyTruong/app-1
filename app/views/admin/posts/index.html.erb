@@ -1,0 +1,56 @@
+<% content_for :search_content do %>
+    <%= search_form_for [:admin, @search], class: "app-search d-none d-lg-block" do |f| %>
+        <div class="position-relative">
+            <%= f.text_field :title_cont, class: "form-control", placeholder: "Nhập tên bài viết.." %><br>
+            <span class="bx bx-search-alt"></span>
+        </div> 
+    <% end %>
+<% end %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Bài Viết (<%= @posts.total_count %>)</h4>
+
+            <div class="page-title-right">
+                <a href="<%= new_admin_post_path %>"
+                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"><i
+                        class="mdi mdi-plus mr-1"></i>Thêm bài viết mới</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Tiêu đề</th>
+                            <th>Trang thái</th>
+                            <th>Tác giả</th>
+                            <th>Ngày tạo</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Lượt xem</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="list-post">
+                        <%= render partial: 'list'%>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<%= render partial: 'paginate'%>

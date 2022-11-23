@@ -2,15 +2,19 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - db_volumes:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: sh /scripts/command.sh
     volumes:
       - .:/app
+      - bundle_volumes:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
       - db
+volumes:
+  bundle_volumes:
+  db_volumes:

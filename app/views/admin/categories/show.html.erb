@@ -1,0 +1,42 @@
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between" data-category-id ="<%= @category.id %>">
+            <h4 class="mb-0 font-size-18">Bài Viết về <%= @category.name %> (<%= @category.posts.count %>)</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Tiêu đề</th>
+                            <th>Trang thái</th>
+                            <th>Danh mục</th>
+                            <th>Tác giả</th>
+                            <th>Ngày tạo</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Lượt xem</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="list-post-of-category">
+                       <%= render partial: 'list_post_of_category'%>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<%= render partial: 'paginate'%>

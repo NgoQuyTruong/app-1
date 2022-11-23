@@ -1,0 +1,7 @@
+<div class="category-wrapper mt-4">
+    <div class="row" id="items">
+        <% @categorys.each do |category|  %>
+            <%= render partial: 'categories/item', locals: {category: category}%>
+        <% end %>
+    </div> 
+</div>

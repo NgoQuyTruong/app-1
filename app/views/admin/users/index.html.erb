@@ -1,0 +1,5 @@
+<% if current_user.role == "super_admin" %>
+    <%= render partial: "manage_users" %>
+<% else  %>
+     <%= render partial: "manage_user" %>
+ <% end  %>

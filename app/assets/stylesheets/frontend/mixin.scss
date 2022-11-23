@@ -1,0 +1,30 @@
+@mixin hover-affect-up($to_top){
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+    transform: translateY($to_top);
+}
+
+@mixin hover($transition){
+    cursor: pointer;
+    transition: $transition;
+}
+
+@mixin absolute-centered(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@mixin overlay($color){
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background-color: $color;
+    }
+}

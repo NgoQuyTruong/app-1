@@ -1,0 +1,49 @@
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Số tag (<%= @tags.total_count %>)</h4>
+
+            <%
+=begin%>
+ <div class="page-title-right">
+                <a href="<%= new_admin_tag_path %>"
+                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"><i
+                        class="mdi mdi-plus mr-1"></i>Thêm tag mới</a>
+            </div> 
+<%
+=end%>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Tên tag</th>
+                            <th>Số bài viết</th>
+                            <th>Ngày tạo</th>
+                            <th class="column-40px">Hành động</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="list-tags">
+                        <%= render partial: 'list'%>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<%= render partial: 'paginate'%>

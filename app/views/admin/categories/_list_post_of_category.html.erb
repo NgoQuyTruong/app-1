@@ -1,0 +1,29 @@
+    <% @list_post_of_category.each do |post|  %>
+    <tr>
+        <td><%= post.title %></td>
+        <td><% if post.visible == true  %>
+            <%= "Công khai" %>
+            <% else %>
+            <%= "Riêng tư" %>
+            <% end %></td>
+        <td>
+            <% post.categories.each do |category|  %>
+            <%= category.name + " ," %>
+            <% end %>
+            </td>
+        <td><%=  Post.find(post.id).user.name %></td>
+        <td><%=  post.created_at.try(:strftime, "%d-%m-%Y   %T") %></td>
+        <td><%= post.updated_at.try(:strftime, "%d-%m-%Y  %T") %></td>
+        <td><%= post.views %></td>
+        <td class="d-flex">
+            <a href="<%= edit_admin_post_path(post) %>" class="mr-3 text-primary"
+                data-toggle="tooltip" data-original-title="Edit"><i
+                    class="mdi mdi-pencil font-size-18"></i></a>
+            <a href="<%= admin_post_path(post)%>" class="mr-3 text-primary" data-toggle="tooltip"
+                data-original-title="Review"><i class="mdi mdi-monitor-eye font-size-18"></i></a>
+            <%= button_to admin_post_path(post), method: :delete, data: { "toggle" => "tooltip","original-title" => "Delete" }, :onclick => "return confirm('Bạn có muốn xóa không ?')", class: "text-danger delete mr-3 btn btn-link p-0"  do %>
+            <i class="mdi mdi-close font-size-18"></i>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>

@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Danh mục (<%= @list_category.count %>)</h4>
+
+            <div class="page-title-right">
+                <a href="<%= new_admin_category_path %>"
+                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"><i
+                        class="mdi mdi-plus mr-1"></i>Thêm danh mục</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row" id="items">
+    <% @list_category.each do |category|  %>
+         
+        <div class="col-lg-4 category-items" data-id ="<%= category.id %>" >
+            <div class="card border border-primary">
+                <div class="card-header bg-transparent border-primary">
+                    <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow mr-3"></i><%=category.name %></h5>
+                </div>
+                <div class="card-body pt-0">
+                    <a href="<%= admin_category_path(category) %>"><h6 class="card-title mt-0"><%= PostCategory.joins(:post).where(category_id:category.id).count %> Bài viết</h6></a>
+                    <p class="card-text"><%=category.description %></p>
+                     <div class="d-flex">
+                     <a href="<%=edit_admin_category_path(category)%>" class="btn btn-info mr-2" data-toggle="tooltip" data-original-title="Chỉnh sửa"><i class="bx bx-edit"></i></a>
+                      <%= button_to admin_category_path(category), method: :delete, data: { "toggle" => "tooltip","original-title" => "Delete" }, :onclick => "return confirm('Bạn có muốn xóa không ?')", class: "btn btn-danger mr-2"  do %>
+                            <i class="bx bxs-trash"></i>
+                    <% end %>
+                     <button class="btn btn-primary mr-2 btn-drag" data-toggle="tooltip" data-original-title="Di chuyển"><i class="mdi mdi-arrow-all"></i></button>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    <% end %>
+</div>

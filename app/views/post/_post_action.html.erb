@@ -1,0 +1,13 @@
+ <div class="post-action" data-login = <%= user_signed_in? %>>
+    <div class="text-center d-none avatar-user">
+        <img src="<%= @post.user.avatar.present? ? @post.user.avatar.url : "/images/default-avatar.png" %>" alt="" class="avatar-sm rounded-circle text-center">
+    </div>
+    <div class="d-flex flex-column" >
+        
+        <a href="#" class="click-to-upVote  btn btn-link  p-0  <%= "hightlight disabled" if @post_vote_check.present? && @post_vote_check.up_vote?  %> "><i class="bx bx-caret-up fs-40px " data-toggle="tooltip" data-placement="right" data-original-title="Upvote"></i></a>
+        <h2> <%= @point_vote %></h2>
+        <a href="#" class="click-to-downVote  btn btn-link  <%= "hightlight disabled" if @post_vote_check.present? && @post_vote_check.down_vote?  %>" ><i class="bx bx-caret-down fs-40px" data-toggle="tooltip" data-placement="right" data-original-title="Downvote"></i></a>
+        <a href="#" class="btn btn-link  p-0 share-to-fb"><i class="bx bxl-facebook my-2 font-size-20 p-2 border-custom" data-toggle="tooltip" data-placement="right" data-original-title="Chia sẻ lên facabook"></i></a>
+        <a href="#" class="btn btn-link  p-0 share-to-tw"><i class="bx bxl-twitter my-2 font-size-20 p-2 border-custom" data-toggle="tooltip" data-placement="right" data-original-title="Chia sẻ lên facabook"></i></a>
+    </div>
+</div>

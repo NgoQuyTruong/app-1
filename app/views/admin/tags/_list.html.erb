@@ -1,0 +1,12 @@
+<% @tags.each do |tag|  %>
+<tr>
+    <td><%= tag.name %></td>
+    <td><%= tag.posts.count %></td>
+    <td><%=  format_date(tag.created_at) %></td>
+    <td class="text-center">
+        <%= button_to admin_tag_path(tag), method: :delete, data: { "toggle" => "tooltip","original-title" => "Delete" }, :onclick => "return confirm('Bạn có muốn xóa không ?')", class: "delete btn btn-danger btn-sm"  do %>
+            Xóa
+        <% end %>
+    </td>
+</tr>
+<% end %>

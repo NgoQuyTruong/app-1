@@ -1,0 +1,17 @@
+<div class="col-xl-3 col-md-4 col-6 category-items" data-id ="<%= category.id %>" >
+<a href="<%= category_path(category) %>">
+   <div class="card p-0 rounded overlay overflow-hidden mb-4">
+        <%= image_tag category.default_avatar %>
+        <div class="card-header bg-transparent text-center px-2 w-100 category-item-header">
+            <h2 class="my-0 text-white">
+                <%= category.name %>
+            </h2>
+            <h5 class="my-0 text-white">
+                <%= PostCategory.joins(:post).where(category_id:category.id).count %>
+                Bài viết
+            </h5>
+        </div>                                        
+    </div>
+</a> 
+ 
+</div>

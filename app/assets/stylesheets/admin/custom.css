@@ -1,0 +1,42 @@
+.user-manage{
+    background: #dfe6e9;
+    border-radius: 5px;
+    transition: .3s;
+}
+.user-manage-body i{
+    font-size: 50px;
+}
+.user-manage:hover{
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 40%);
+}
+.profile-user{
+    width: 100px;
+    height: 100px;
+}
+
+
+/* category */
+.preview-avatar-category {
+    max-width: 200px;
+}
+/* ghost class for drag item */
+.ghost-item .card{
+    background-color: #6685e12e;
+}
+
+
+/* ulities */
+.column-40px {
+    width: 40px;
+}
+.avatar_author_post{
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    object-fit: cover;
+}
+.follower-icon-custom{
+    transform: rotate(45deg);
+    padding: 0px;
+    border: none;
+}

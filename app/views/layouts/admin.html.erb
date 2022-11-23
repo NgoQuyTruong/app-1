@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>KhoaLuanTN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/admin/assets/images/favicon.ico">
+      <!-- datepicker css -->
+    <link href="/admin/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <!-- select2 css -->
+    <link href="/admin/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css">     
+    <!-- Summernote css -->
+    <link href="/admin/assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Css -->
+    <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="/admin/assets/css/app.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/admin/assets/libs/toastr/build/toastr.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom css -->
+     <link href="/admin/assets/css/custom.css" rel="stylesheet" type="text/css">
+
+      <%= stylesheet_link_tag 'admin/custom' %>
+</head>
+
+<body data-sidebar="dark">
+    
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <%= render partial: "admin/shared/header" %>
+         
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+
+            <div data-simplebar="" class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title">Menu</li>
+
+                        <li>
+                            <a href="<%= admin_root_path %>" class="waves-effect">
+                                <i class="bx bx-home-circle"></i>
+                                <span>Dashboards</span>
+                            </a>
+                        </li>
+                        <li class="menu-title">Apps</li>
+
+                        <li>
+                            <a href="<%= admin_posts_path %>" class=" waves-effect">
+                                <i class="bx bx-pencil"></i>
+                                <span> Quản lý bài viết</span>
+                            </a>
+                        </li>
+                        <% if current_user.role == "super_admin" %>
+                            
+                            <li>
+                                <a href="<%= admin_users_path %>" >
+                                    <i class="bx bx-user-circle"></i>
+                                    <span>Quản lý User</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="<%= admin_categories_path %>" class="">
+                                    <i class="bx bx-file"></i>
+                                    <span>Quản lý Danh Mục</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="<%= admin_tags_path %>" class="">
+                                    <i class="bx bx-purchase-tag-alt"></i>
+                                    <span>Quản lý Tag</span>
+                                </a>
+                            </li>
+                       
+                        <% end %>
+                         <li>
+                            <a href="<%= admin_comments_path %>" class=" waves-effect">
+                                <i class="fas fa-comment"></i>
+                                <span> Quản lý Comment</span>
+                            </a>
+                        </li>
+                        <li>
+                                <a href="<%= edit_profile_admin_users_path %>" class="">
+                                    <i class="bx bx-user"></i>
+                                    <span>Thông tin cá nhân</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="<%= edit_password_admin_users_path %>" class="">
+                                    <i class="bx bx-user"></i>
+                                    <span>Mật khẩu</span>
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+                
+
+                    <%= yield %>
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Skote.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-right d-none d-sm-block">
+                                Design & Develop by Themesbrand
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!--load animate -->
+    <%= render partial: "/admin/shared/load_animate" %>
+
+    <!-- JAVASCRIPT -->
+    <script src="/admin/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/admin/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/admin/assets/libs/node-waves/waves.min.js"></script>
+
+        <!-- bootstrap datepicker -->
+    <script src="/admin/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Summernote js -->
+    <script src="/admin/assets/libs/summernote/summernote-bs4.min.js"></script>
+    
+    <!-- form repeater js -->
+    <script src="/admin/assets/libs/jquery.repeater/jquery.repeater.min.js"></script>
+
+    <script src="/admin/assets/js/pages/task-create.init.js"></script>
+    <!-- App js -->
+    <script src="/admin/assets/js/app.js"></script>
+    <script src="/admin/assets/js/test.js"></script>
+    <!-- Toast js -->
+    
+    <script src="/admin/assets/libs/toastr/build/toastr.min.js"></script>
+     <!-- select2 js -->
+    <script src="/admin/assets\libs\select2\js\select2.min.js"></script>
+<!-- validate js -->
+    <script src="/admin/assets\libs\parsleyjs\parsley.min.js"></script>
+    <script src="/admin/assets\js\pages\form-validation.init.js"></script>
+    <!--https://github.com/SortableJs -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  
+   <% if notice.present? %>
+    <script>
+             toastr["success"]("<%= notice %> ");
+             
+    </script>
+    <% end %>
+
+    <% if alert.present? %>
+         <script>
+             toastr["error"]("<%= alert %> ")
+    </script>
+    <% end %>
+    <script>
+        <%== "var AUTH_TOKEN = #{form_authenticity_token.inspect};" %>
+    </script>
+    <!--custom js -->
+    <%= javascript_include_tag "admin/post" %>
+    <%= javascript_include_tag "admin/category" %>
+    <%= javascript_include_tag "admin/shared" %>
+    <%= javascript_include_tag "admin/image" %>
+    <%= javascript_include_tag "admin/modal" %>
+    <%= javascript_include_tag "admin/tag" %>
+</body>
+</html>

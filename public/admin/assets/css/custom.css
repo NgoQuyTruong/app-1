@@ -1,0 +1,8 @@
+.hover-shadow,.is-hover-shadow{
+    transition: 0.4s;
+}
+
+.hover-shadow:hover .is-hover-shadow{
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 40%)!important;
+    transition: 0.4s;
+}

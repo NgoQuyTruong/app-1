@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Contact User Grid | Skote - Responsive Bootstrap 4 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/admin/assets/images/favicon.ico">
+    <!-- datepicker css -->
+    <link href="/admin/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!-- Summernote css -->
+    <link href="/admin/assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Css -->
+    <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="/admin/assets/css/app.min.css" rel="stylesheet" type="text/css">
+    <!-- toastr Css-->
+    <link href="/admin/assets/libs/toastr/build/toastr.min.css" rel="stylesheet" type="text/css">
+    <%# custom css %>
+    <%= stylesheet_link_tag 'frontend/all', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+
+</head>
+
+<body data-topbar="dark" data-layout="horizontal">
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <%= render partial: "shared/header" %>
+        <div class="main-content">
+            <%= render partial: "shared/banner" %>   
+           
+            <div class="page-content mt-0 pt-5">
+                <div class="container-fluid">
+                    <%= yield %>
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+            
+            <%= render partial: "shared/footer" %>
+
+        </div>
+        <!-- end main content-->
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="/admin/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/admin/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/admin/assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- bootstrap datepicker -->
+    <script src="/admin/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Summernote js -->
+    <script src="/admin/assets/libs/summernote/summernote-bs4.min.js"></script>
+
+    <!-- form repeater js -->
+    <script src="/admin/assets/libs/jquery.repeater/jquery.repeater.min.js"></script>
+
+    <script src="/admin/assets/js/pages/task-create.init.js"></script>
+    <!-- App js -->
+    <script src="/admin/assets/js/app.js"></script>
+    <script src="/admin/assets/js/test.js"></script>
+ <!-- Toast js -->
+    
+    <script src="/admin/assets/libs/toastr/build/toastr.min.js"></script>
+    
+     <script>
+        <%== "var AUTH_TOKEN = #{form_authenticity_token.inspect};" %>
+    </script>
+    <!--custom js -->
+    <%= javascript_pack_tag 'front_end/all' %>
+</body>
+</html>

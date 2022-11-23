@@ -1,0 +1,93 @@
+
+            <header id="page-topbar" class="shadow-lg">
+                <div class="navbar-header">
+                    <div class="d-flex flex-grow-1">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="/" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="/admin/assets/images/logo.svg" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/admin/assets/images/logo-dark.png" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="/" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="/admin/assets/images/logo-light.svg" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/admin/assets/images/logo-light.png" alt="" height="19">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                        <!-- App Search-->
+                       
+                     
+                        
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ml-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-search-dropdown">
+                    
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        
+                        <% if user_signed_in? %>
+                        <div class="dropdown d-inline-block">
+                                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="/admin/assets/images/users\avatar-1.jpg" alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ml-1">
+                                    <%=  current_user.name %>
+                                 </span>
+                                   <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                                 </button>
+                                 <div class="dropdown-menu dropdown-menu-right">
+                                     <a class="dropdown-item" href="<%= admin_root_path %>" target = "_blank"><i
+                                            class="bx bx-user font-size-16 align-middle mr-1"></i> Dashboard</a>
+                                    <a class="dropdown-item" href="<%= author_path(current_user.id) %>"><i
+                                            class="bx bx-wallet font-size-16 align-middle mr-1"></i> Hồ sơ</a>
+                        
+                                    <a class="dropdown-item d-block" href="#"><span
+                                            class="badge badge-success float-right">11</span><i
+                                            class="bx bx-wrench font-size-16 align-middle mr-1"></i> Thông báo</a>
+                                    <div class="dropdown-divider"></div>
+                                    <%= button_to  destroy_user_session_path, method: :delete,class: "dropdown-item text-danger" do%>
+                                        <i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i>Logout
+                                    <% end  %>
+                                </div>
+                        <% else %> 
+                            <div class="dropdown d-none d-lg-inline-block ml-1">
+                                <div class="d-flex align-items-center header-item">
+                                    <%= link_to "Sign in /", new_user_session_path %><br />
+                                    <%= link_to "Regsiter", new_user_session_path %><br />
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </header>
+            <%= render partial: "shared/topnav" %>

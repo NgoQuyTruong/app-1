@@ -1,0 +1,89 @@
+        <div class="container bg-white">
+            <div class="row py-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <div title="Click to upload your avatar."
+                                class="btn-change-avatar btn-change-avatar--trigger-hover"></div>
+                            <div class="el-dialog__wrapper profile-picture-dialog" style="display: none;">
+                                <div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog"
+                                    style="margin-top: 15vh;">
+                                    <div class="el-dialog__header">
+                                        <div>
+                                            Change Profile Picture
+                                            <!---->
+                                        </div><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                class="el-dialog__close el-icon el-icon-close"></i></button>
+                                    </div>
+                                    <!---->
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <h1 class="greeting-title">
+                            Welcome, <%= @user.name %>
+                        </h1>
+                        <p class="greeting-sub-title">
+                            Manage your profile information and security with Viblo Accounts
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-4">
+                <div class="mb-2 col-sm-6 col-md-4">
+                    <a href="<%= edit_profile_admin_users_path %>" class="edit-user">
+                        <div class="user-manage card-item text-center is-hover-shadow py-5">
+                                <!---->
+                                <div class="user-manage-body">
+                                <i class="fas fa-user-alt"></i>
+                                    <h2 class="card-title mt-4">
+                                        Hồ sơ
+                                    </h2>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+                 <div class="mb-2 col-sm-6 col-md-4">
+                    <a href="<%= edit_password_admin_users_path %>" class="edit-user">
+                        <div class="user-manage card-item text-center is-hover-shadow py-5">
+                                <!---->
+                                <div class="user-manage-body">
+                                <i class="bx bx-lock"></i>
+                                    <h2 class="card-title mt-4">
+                                        Mật khẩu
+                                    </h2>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+                 <div class="mb-2 col-sm-6 col-md-4">
+                    <a href="<%= edit_admin_user_path(@user.id) %>" class="edit-user">
+                        <div class="user-manage card-item text-center is-hover-shadow py-5">
+                                <!---->
+                                <div class="user-manage-body">
+                                <i class="bx bxs-star"></i>
+                                    <h2 class="card-title mt-4">
+                                        Bài viết yêu thích
+                                    </h2>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+                 <div class="mb-2 col-sm-6 col-md-4">
+                    <a href="/profile/personal" class="edit-user">
+                        <div class="user-manage card-item text-center is-hover-shadow py-5">
+                                <!---->
+                                <div class="user-manage-body">
+                                <i class="bx bxs-save"></i>
+                                    <h2 class="card-title mt-4">
+                                        Bài viết đã lưu
+                                    </h2>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>

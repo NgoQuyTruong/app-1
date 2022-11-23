@@ -1,0 +1,82 @@
+    <div class="row">
+              
+            <div class="col-xl-12">
+                
+                <div class="card">
+                    <div class="card-body">
+                    <h2 >Thông tin cá nhân</h2>
+                        <div class="row text-center">
+                                    <div class="col-lg-12">
+                                        <label for="taskname" class="col-form-label col-lg-2">Ảnh đại diện</label>
+                                        <div class="col-lg-12">
+                                               
+                                                <% if @user.avatar.present?   %>
+                                                     <%= image_tag @user.default_avatar , class: 'profile-user rounded-circle' %>
+                                                <% end %>
+                                                <img  class="d-none" src="#" alt="your image"/>
+                                        </div>
+                                    </div>
+                        </div>
+                        <%= render partial: "modal_upload_img" %>
+                        <%= form_for [:admin, @user], html: {class: "outer-repeater py-5", remote: false} do |f| %>
+                            <div class="outer">
+                                        <div class="outer">
+            
+                                            <div class="form-group row mb-4">
+                                                <label for="taskname" class="col-form-label col-lg-2">Tên tài khoản</label>
+                                                <div class="col-lg-10">
+                                                    <%= f.text_field :name, placeholder: 'Tên danh mục ...' ,class: 'form-control disabled'  %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-4">
+                                                <label for="taskname" class="col-form-label col-lg-2">Ngày tạo tài khoản</label>
+                                                <div class="col-lg-10">
+                                                    <%= f.text_field :created_at, placeholder: 'Ngày tạo tài khoản ...' ,class: 'form-control  bg-light',disabled: "disabled"  %>
+                                                </div>
+                                            </div>
+
+                                          
+                                            <div class="form-group row mb-4">
+                                                <label for="taskname" class="col-form-label col-lg-2">Email</label>
+                                                <div class="col-lg-10">
+                                                    <%= f.text_field :email, placeholder: 'Email...' ,class: 'form-control bg-light ',disabled: "disabled"  %>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-4">
+                                                <label for="taskname" class="col-form-label col-lg-2">Địa chỉ</label>
+                                                <div class="col-lg-10">
+                                                    <%= f.text_field :address, placeholder: 'Địa chỉ ...' ,class: 'form-control '  %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-4">
+                                                <label for="taskname" class="col-form-label col-lg-2">Số điện thoại</label>
+                                                <div class="col-lg-10">
+                                                    <%= f.text_field :phone, placeholder: 'Số điện thoại ...' ,class: 'form-control '  %>
+                                                </div>
+                                            </div>
+                                             <div class="form-group row mb-4">
+                                                <label for="taskname" class="col-form-label col-lg-2">Ngày sinh</label>
+                                                <div class="col-lg-10">
+                                                    <%= f.date_field :birthday, :value => @user.birthday, placeholder: 'Ngày sinh ...' ,class: 'form-control' %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-4 d-none">
+                                                    <label for="taskbudget" class="col-form-label col-lg-2">Slug</label>
+                                                    <div class="col-lg-10">
+                                                            <%= f.text_field :slug ,class: 'form-control peralink_post'  %>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                                <div class="col-lg-10">
+                                                    <button type="submit" class="btn btn-primary new-post">Cập nhật</button>
+                                                    <%= link_to "Hủy", admin_users_path , class: "btn btn-secondary" %> 
+                                                </div>
+                                    </div>     
+                        <% end %>
+        </div>
+    </div>
+</div> <!-- end col -->
+</div> <!-- end row -->

@@ -1,0 +1,164 @@
+
+    
+
+<div class="row">
+                            <div class="col-xl-4">
+                                <div class="card overflow-hidden">
+                                    <div class="bg-soft-primary">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="text-primary p-3">
+                                                    <h5 class="text-primary">Welcome Back !</h5>
+                                                    <p>Chào mừng đến với trang quản trị viên</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 align-self-end">
+                                                <img src="<%= current_user.avatar.url %>" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row py-3">
+                                            <div class="col-sm-5">
+                                               
+                                                <h5 class="font-size-15 "><%= current_user.name %></h5>
+                                                <p class="text-muted mb-0 text-truncate"><%= current_user.name %></p>
+                                            </div>
+
+                                            <div class="col-sm-7">
+                                                <div >
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="font-size-15"><%= current_user.posts.where(visible: true).count %></h5>
+                                                            <p class="text-muted mb-0">Bài viết công khai</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <h5 class="font-size-15"><%= current_user.posts.count %></h5>
+                                                            <p class="text-muted mb-0">Người theo dõi</p>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="mt-4">
+                                                        <a href="" class="btn btn-primary waves-effect waves-light btn-sm">Xem tất cả bài viết <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end card -->
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Thông tin cá nhân</h4>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-nowrap mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Full Name :</th>
+                                                        <td><%= current_user.name%></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <th scope="row">Mobile :</th>
+                                                        <td>(123) 123 1234</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">E-mail :</th>
+                                                        <td><%= current_user.email %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Location :</th>
+                                                        <td>California, United States</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end card -->
+                            </div>         
+                            
+                            <div class="col-xl-8">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href=" <%= admin_posts_path %>">
+                                                        <div class="card">
+                                                            <div class="card-body shadow-sm is-hover-shadow">
+                                                                <div class="d-flex align-items-center mb-3">
+                                                                    <div class="avatar-xs mr-3">
+                                                                        <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
+                                                                            <i class="bx bx-pencil"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <h5 class="font-size-14 mb-0">Tất cả viết</h5>
+                                                                </div>
+                                                                <div class="text-muted mt-4">
+                                                                    <h4><%= @count_post %></h4>
+                                                                    <div class="d-flex">
+                                                                        <span class="badge badge-soft-success font-size-12"> +<%= @post_of_today%> </span> <span class="ml-2 text-truncate"> hôm nay</span>
+                                                                    </div>
+                                                                </div>
+                                                        
+                                                            </div>
+                                                        </div>
+                                           </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                             <a href=" <%= admin_posts_path %>">
+                                                        <div class="card">
+                                                            <div class="card-body shadow-sm is-hover-shadow">
+                                                                <div class="d-flex align-items-center mb-3">
+                                                                    <div class="avatar-xs mr-3">
+                                                                        <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
+                                                                            <i class="bx bx-pencil"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <h5 class="font-size-14 mb-0">Bài viết riêng tư</h5>
+                                                                </div>
+                                                                <div class="text-muted mt-4">
+                                                                    <h4><%= current_user.posts.where(visible: true).count %></h4>
+                                                                   <div class="d-flex">
+                                                                        <span class="badge badge-soft-success font-size-12"> +<%= @post_of_today%> </span> <span class="ml-2 text-truncate"> hôm nay</span>
+                                                                    </div>
+                                                                </div>
+                                                        
+                                                            </div>
+                                                        </div>
+                                           </a>
+                                    </div>
+              
+                                </div>
+                             
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Bài viết nổi bật</h4>
+                                        <div class="table-responsive">
+                                            <table class="table table-nowrap table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Tiêu đề</th>
+                                                        <th scope="col">Ngày viết bài</th>
+                                                        <th scope="col">Lượt xem</th>
+                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% current_user.posts.where(visible: true).order(views: :desc).limit(10).each do |post|   %>
+                                                        <tr>
+                                                            <td><%= post.title %></td>
+                                                            <td><%= post.created_at %></td>
+                                                            <td><%= post.views %></td>
+                                                        </tr>
+                                                    <% end  %>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
