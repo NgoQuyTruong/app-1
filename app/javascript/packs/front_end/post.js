@@ -151,3 +151,22 @@ $(document).on("click",".click-to-downVote",function(e){
         })
     }
 })
+
+$(document).on('click', ".notification-item", function (e) {
+  e.preventDefault();
+  const notification_id = $(this).data('notification');
+  const self = this;
+  console.log(notification_id);
+  $.ajax({
+    url: `/post/view_notification`,
+    data: {
+      notification_id: notification_id,  
+      authenticity_token: AUTH_TOKEN,
+      },
+    type: 'post',
+    dataType: 'script'
+    }).done(function (data) {
+        console.log($(self));
+        window.location.href = self.href
+    })
+})

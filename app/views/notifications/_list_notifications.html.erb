@@ -1,42 +1,53 @@
-<div class="dropdown d-inline-block">
-            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="bx bx-bell bx-tada"></i>
-                <span class="badge badge-danger badge-pill">3</span>
-            </button>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-notifications-dropdown">
-                <div class="p-3">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h6 class="m-0"> Notifications </h6>
-                        </div>
-                        <div class="col-auto">
-                            <a href="#!" class="small"> View All</a>
-                        </div>
-                    </div>
-                </div>
-                <div data-simplebar="" style="max-height: 230px;">
-                    
-                    <% User.find(current_user.id).notifications.each do |notifi| %>
-                        <a href="" class="text-reset notification-item">
-                            <div class="media">
-                                <img src="<%= notifi.user.avatar.present? ? url_for(notifi.user.avatar) : "/images/default-avatar.png"  %>" class="mr-3 rounded-circle avatar-xs" alt="user-pic">
-                                <div class="media-body">
-                                    <h6 class="mt-0 mb-1"><%= notifi.user.name %></h6>
-                                    <div class="font-size-12 text-muted">
-                                        <p class="mb-1"><%= notifi.body %></p>
-                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <%= time_ago_in_words(notifi.created_at) %></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    <% end %>
+<% 
+  user_notificaiton = @notification.presence || []
+%>
 
-                    
+<div class="dropdown d-inline-block">
+    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="bx bx-bell bx-tada"></i>
+        <span class="badge badge-danger badge-pill"><%= notifications_count(user_notificaiton) %></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-notifications-dropdown">
+        <div class="p-3">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h6 class="m-0"> Notifications </h6>
                 </div>
-                <div class="p-2 border-top">
-                    <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
-                        <i class="mdi mdi-arrow-right-circle mr-1"></i> View More..
-                    </a>
+                <div class="col-auto">
+                    <a href="#!" class="small"> View All</a>
                 </div>
             </div>
         </div>
+        <div data-simplebar="" style="max-height: 600px;">
+            
+            <% user_notificaiton.reverse.each do |notifi| %>
+                <a href="<%= post_path(notifi.post) %>" data-notification="<%= notifi.id %>" class="text-reset notification-item">
+                    <div class="media">
+                        <img src="<%= notifi.user_noti.avatar.present? ? url_for(notifi.user_noti.avatar) : "/images/default-avatar.png"  %>" class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                        <div class="media-body">
+                            <h6 class="mt-0 mb-1"><%= notifi.user_noti.name %></h6>
+                            <div class="font-size-12 text-muted">
+                                <p class="mb-1"><%= notifi.content %></p>
+                                <p><%= notifi.post.summary %></p>
+                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <%= time_ago_in_words(notifi.created_at) %></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% end %>
+
+            
+        </div>
+        <div class="p-2 border-top">
+            <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
+                <i class="mdi mdi-arrow-right-circle mr-1"></i> View More..
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+   function view_post() {
+      console.log('123');
+    }
+</script>

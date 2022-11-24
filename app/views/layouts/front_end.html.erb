@@ -34,8 +34,7 @@
 
     <!-- Begin page -->
     <div id="layout-wrapper">
-
-        <%= render partial: "shared/header" %>
+        <%= render partial: "shared/header", :locals => { :notifications => @notification } %>
         <div class="main-content">
             <%= render partial: "shared/banner" %>   
            

@@ -32,6 +32,7 @@
                      
                         
                     </div>
+                    <%= render partial: "notifications/list_notifications", :locals => { :notifications => @notification }%>
 
                     <div class="d-flex">
 
@@ -59,25 +60,22 @@
                         <% if user_signed_in? %>
                         <div class="dropdown d-inline-block">
                                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="/admin/assets/images/users\avatar-1.jpg" alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ml-1">
-                                    <%=  current_user.name %>
-                                 </span>
-                                   <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
-                                 </button>
-                                 <div class="dropdown-menu dropdown-menu-right">
-                                     <a class="dropdown-item" href="<%= admin_root_path %>" target = "_blank"><i
-                                            class="bx bx-user font-size-16 align-middle mr-1"></i> Dashboard</a>
-                                    <a class="dropdown-item" href="<%= author_path(current_user.id) %>"><i
-                                            class="bx bx-wallet font-size-16 align-middle mr-1"></i> Hồ sơ</a>
-                        
-                                    <a class="dropdown-item d-block" href="#"><span
-                                            class="badge badge-success float-right">11</span><i
-                                            class="bx bx-wrench font-size-16 align-middle mr-1"></i> Thông báo</a>
-                                    <div class="dropdown-divider"></div>
-                                    <%= button_to  destroy_user_session_path, method: :delete,class: "dropdown-item text-danger" do%>
-                                        <i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i>Logout
-                                    <% end  %>
+                                  <img class="rounded-circle header-profile-user" src="/admin/assets/images/users\avatar-1.jpg" alt="Header Avatar">
+                                  <i class="mdi mdi-chevron-down d-none d-xl-inline-block avatar-icon"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a class="dropdown-item" href="<%= admin_root_path %>" target = "_blank"><i
+                                          class="bx bx-user font-size-16 align-middle mr-1"></i> Dashboard</a>
+                                  <a class="dropdown-item" href="<%= author_path(current_user.id) %>"><i
+                                          class="bx bx-wallet font-size-16 align-middle mr-1"></i> Hồ sơ</a>
+                      
+                                  <a class="dropdown-item d-block" href="#"><span
+                                          class="badge badge-success float-right">11</span><i
+                                          class="bx bx-wrench font-size-16 align-middle mr-1"></i> Thông báo</a>
+                                  <div class="dropdown-divider"></div>
+                                  <%= button_to  destroy_user_session_path, method: :delete,class: "dropdown-item text-danger" do%>
+                                      <i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i>Logout
+                                  <% end  %>
                                 </div>
                         <% else %> 
                             <div class="dropdown d-none d-lg-inline-block ml-1">

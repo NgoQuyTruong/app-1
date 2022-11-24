@@ -14,10 +14,11 @@ class User < ApplicationRecord
   before_create :default_name
   
 
-
+  # nguoi theo doi (nguoi dang theo doi minh)
   has_many :friendship_followers, foreign_key: :followed_id, class_name: "FriendShip"
   has_many :followers, through: :friendship_followers
 
+  # nguoi dang theo doi (minh dang theo doi nguoi khac)
   has_many :friendship_followeds, foreign_key: :follower_id, class_name: "FriendShip"
   has_many :followeds, through: :friendship_followeds
 

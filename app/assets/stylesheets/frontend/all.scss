@@ -9,5 +9,13 @@
     margin-top: 80px !important;
     position: relative;
 }
-
-
+.avatar-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  background: gainsboro;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  color: #000;
+}

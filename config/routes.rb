@@ -34,8 +34,11 @@ Rails.application.routes.draw do
     end
   end
 
-  
+
   resources :post do 
+    collection do
+      post :view_notification
+    end
     resources :comments do
       post :rep_comment
     end

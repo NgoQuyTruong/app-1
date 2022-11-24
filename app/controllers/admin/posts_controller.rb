@@ -39,14 +39,15 @@ module Admin
             @post.user_id = current_user.id
 
             if  @post.save
-                # add category
-                @post.category_ids = params[:post][:category_ids]
-                # add tag
-                @post.tag_ids = params[:post][:tag_ids]
+              # add category
+              @post.category_ids = params[:post][:category_ids]
+              # add tag
+              @post.tag_ids = params[:post][:tag_ids]
+              @post.create_nofification
 
-                redirect_to admin_posts_path
+              redirect_to admin_posts_path
             else
-                render :new
+              render :new
             end
         end
 

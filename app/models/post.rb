@@ -4,6 +4,7 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
     has_many :votes
+    has_many :post_notifications
     
     has_many :post_categories, foreign_key: :post_id
     has_many :categories, through: :post_categories
@@ -41,6 +42,19 @@ class Post < ApplicationRecord
       doc = Nokogiri::HTML(self.body)
       summary = doc.content.split(/\s+/).take(30).join(" ")
       self.summary = summary
+    end
+
+    def create_nofification
+      user.follower_ids.each do |u_follow|
+        PostNotification.create(
+          post_id: self.id,
+          user_id: u_follow,
+          from_user: user.id,
+          notification_type: "post",
+          content: "#{user.name} đã thêm bài viết mới !",
+          custom_fields: "0"
+        )
+      end
     end
     
 end

@@ -40,5 +40,14 @@ class PostController < ApplicationController
     
     end
 
+    def view_notification
+      notification_id = params[:notification_id]&.to_i
+
+      PostNotification.find(notification_id)&.update(custom_fields: "1")
+      respond_to do |format|
+          format.json { render json:  {}, status: :ok }
+      end
+    end
+
     
 end
