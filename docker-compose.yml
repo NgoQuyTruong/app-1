@@ -15,6 +15,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    tty: true
+    stdin_open: true
+
 volumes:
   bundle_volumes:
   db_volumes:

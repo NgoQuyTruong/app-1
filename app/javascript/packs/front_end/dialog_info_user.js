@@ -194,7 +194,7 @@ class DialogInfoUser {
     checkAvatar(data){
         if(data.avatar){
             return(`
-                <img src="${data.user_data.default_avatar}" class="avatar">
+                <img src="${data.avatar_url}" class="avatar">
             `)
         }
         return(`

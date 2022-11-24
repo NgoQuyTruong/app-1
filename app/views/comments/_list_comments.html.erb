@@ -1,6 +1,6 @@
         <% @post.comments.order(created_at: :desc).each do |comment| %>
             <div class="media py-3 border-bottom comment-items" data-comment-id = <%= comment.id %> >
-                <img src="<%= comment.user.avatar.present? ? comment.user.avatar.url : "/images/default-avatar.png"  %>" class="avatar-xs mr-3 rounded-circle" alt="img">
+                <img src="<%= comment.user.avatar.present? ? url_for(comment.user.avatar) : "/images/default-avatar.png"  %>" class="avatar-xs mr-3 rounded-circle" alt="img">
                 <div class="media-body current-comment">
                     <div class="d-flex justify-content-between body-comment">
                         <div class = "user-comment">
@@ -43,7 +43,7 @@
                        
                         <% comment.replycomments.order(created_at: :desc).each do |repcomment| %>
                              <div class="media mt-4">
-                                <img src="<%= repcomment.user.avatar.present? ? repcomment.user.avatar.url : "/images/default-avatar.png" %>" class="avatar-xs mr-3 rounded-circle" alt="img">
+                                <img src="<%= repcomment.user.avatar.present? ? url_for(repcomment.user.avatar) : "/images/default-avatar.png" %>" class="avatar-xs mr-3 rounded-circle" alt="img">
                                 <div class="media-body">
                                     <h5 class="mt-0 mb-1 font-size-15"><%= repcomment.user.name %></h5>
                                     <p class="text-muted"><%= repcomment.body %></p>

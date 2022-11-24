@@ -40,7 +40,6 @@ module Admin
 
             if  @post.save
                 # add category
-                binding.pry
                 @post.category_ids = params[:post][:category_ids]
                 # add tag
                 @post.tag_ids = params[:post][:tag_ids]

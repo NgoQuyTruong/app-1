@@ -68,7 +68,7 @@
                                             <% post.comments.select(:user_id).distinct.each do |comment| %>
                                                 <div class=" rounded mx-1">
                                                     <a href="#"  data-toggle="tooltip" data-original-title="<%= comment.user.name %>">
-                                                        <img src="<%= comment.user.avatar.url %>" class="img-fluid rounded-circle avatar_author_comment" >
+                                                        <img src="<%= url_for(comment.user.avatar) %>" class="img-fluid rounded-circle avatar_author_comment" >
                                                     </a>
                                                 </div>
                                             <% end %>
