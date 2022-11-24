@@ -43,7 +43,9 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'stringex', '~> 2.8', '>= 2.8.5'
 
 gem "nokogiri"
-gem 'pry-rails'
+
+gem 'pry-rails', :group => :development
+
 gem "mini_magick"
 
 group :development, :test do

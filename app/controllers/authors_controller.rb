@@ -18,8 +18,7 @@ class AuthorsController < ApplicationController
 
         # is_mine post
         @mine = (current_user.present? && @user == current_user) || false
-        @avatar = @user.avatar?
-
+        @avatar = @user.avatar
         #@user_test = User.friendly.find(params[:id])
         respond_to do |format|
             format.html # index.html.erb
@@ -31,7 +30,8 @@ class AuthorsController < ApplicationController
                 status_login: @status_login,
                 status_follow: @follow_by_current_user,
                 mine: @mine,
-                avatar: @avatar
+                avatar: @avatar,
+                avatar_url: url_for(@avatar)
             }}
         end
     end

@@ -1,5 +1,9 @@
 
 //= require_tree .
+require("packs/front_end/post")
+require("packs/front_end/comment")
+require("packs/front_end/search")
+require("packs/front_end/dialog_info_user")
 
 $(document).on("click", "[data-method]",function(e){
     let url = $(this).attr("href");

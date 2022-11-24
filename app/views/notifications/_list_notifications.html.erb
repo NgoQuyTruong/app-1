@@ -19,7 +19,7 @@
                     <% User.find(current_user.id).notifications.each do |notifi| %>
                         <a href="" class="text-reset notification-item">
                             <div class="media">
-                                <img src="<%= notifi.user.avatar.present? ? notifi.user.avatar.url : "/images/default-avatar.png"  %>" class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                <img src="<%= notifi.user.avatar.present? ? url_for(notifi.user.avatar) : "/images/default-avatar.png"  %>" class="mr-3 rounded-circle avatar-xs" alt="user-pic">
                                 <div class="media-body">
                                     <h6 class="mt-0 mb-1"><%= notifi.user.name %></h6>
                                     <div class="font-size-12 text-muted">
