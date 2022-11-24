@@ -1,13 +1,15 @@
-// .category-items {
-//     .card {
-//         @include hover(0.3s);
-//         &:hover {
-//             @include hover-affect-up(-10px)
-//         }
-//     }
+@import "frontend/mixin";
 
-//     .category-item-header {
-//         @include absolute-centered;
-//         z-index: 2;
-//     }
-// }
+.category-items {
+    .card {
+        @include hover(0.3s);
+        &:hover {
+            @include hover-affect-up(-10px)
+        }
+    }
+
+    .category-item-header {
+        @include absolute-centered;
+        z-index: 2;
+    }
+}

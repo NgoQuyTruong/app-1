@@ -1,6 +1,6 @@
  <div class="post-action" data-login = <%= user_signed_in? %>>
     <div class="text-center d-none avatar-user">
-        <img src="<%= @post.user.avatar.present? ? @post.user.avatar.url : "/images/default-avatar.png" %>" alt="" class="avatar-sm rounded-circle text-center">
+        <img src="<%= @post.user.avatar.present? ? url_for(@post.user.avatar) : "/images/default-avatar.png" %>" alt="" class="avatar-sm rounded-circle text-center">
     </div>
     <div class="d-flex flex-column" >
         

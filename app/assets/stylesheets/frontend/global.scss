@@ -1,4 +1,5 @@
+@import "frontend/mixin";
 .overlay {
     position: relative;
-    // @include overlay(#0000006e)
+    @include overlay(#0000006e)
 }

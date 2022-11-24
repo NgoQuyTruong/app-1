@@ -39,7 +39,8 @@ module Admin
             @post.user_id = current_user.id
 
             if  @post.save
-                # add category 
+                # add category
+                binding.pry
                 @post.category_ids = params[:post][:category_ids]
                 # add tag
                 @post.tag_ids = params[:post][:tag_ids]

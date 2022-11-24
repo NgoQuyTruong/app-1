@@ -11,10 +11,10 @@
             <div class="post-item shadow mb-2">
                 <div class="item-head d-flex align-item-center">
                     <div class="author-avatar bg-white p-1 rounded">
-                        <img <% if post.user.avatar_file_size.nil?  %>
+                        <img <% if post.user.avatar.nil?  %>
                                 src="/images/default-avatar.png"
                                 <% else %>
-                                    src="<%=  post.user.avatar.url %>"
+                                    src="<%= url_for(post.user.avatar) %>"
                                 <% end  %>
                         
                         class="img-fluid rounded-circle avatar_author_post">
