@@ -26,7 +26,7 @@ class User < ApplicationRecord
   
 
   def default_avatar
-      avatar.url(:medium)
+      avatar
   end
 
   def default_name

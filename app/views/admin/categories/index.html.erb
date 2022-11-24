@@ -22,7 +22,7 @@
                     <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow mr-3"></i><%=category.name %></h5>
                 </div>
                 <div class="card-body pt-0">
-                    <a href="<%= admin_category_path(category) %>"><h6 class="card-title mt-0"><%= PostCategory.joins(:post).where(category_id:category.id).count %> Bài viết</h6></a>
+                    <a href="<%= admin_category_path(category) %>"><h6 class="card-title mt-0"><%= post_of_category(category.id).presence || 10 %> Bài viết</h6></a>
                     <p class="card-text"><%=category.description %></p>
                      <div class="d-flex">
                      <a href="<%=edit_admin_category_path(category)%>" class="btn btn-info mr-2" data-toggle="tooltip" data-original-title="Chỉnh sửa"><i class="bx bx-edit"></i></a>

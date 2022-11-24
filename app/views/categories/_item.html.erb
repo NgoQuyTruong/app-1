@@ -7,7 +7,7 @@
                 <%= category.name %>
             </h2>
             <h5 class="my-0 text-white">
-                <%= PostCategory.joins(:post).where(category_id:category.id).count %>
+                <%= post_of_category(category.id).presence || 10 %>
                 Bài viết
             </h5>
         </div>                                        

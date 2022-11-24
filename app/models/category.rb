@@ -15,7 +15,7 @@ class Category < ApplicationRecord
 
 
     def default_avatar
-        avatar.url(:medium)
+      avatar
     end
 
 end
