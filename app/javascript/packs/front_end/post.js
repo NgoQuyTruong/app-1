@@ -59,7 +59,7 @@ $(document).scroll(function(){
  }
  
  let login = $(".post-action").attr("data-login") 
- console.log(login);
+ console.log('123');
  if(login === "false"){
      console.log(123);
      $(".click-to-upVote").addClass("disabled")

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
-  
+  get "/love" => "love#index"
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end

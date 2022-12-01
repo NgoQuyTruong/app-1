@@ -4,6 +4,7 @@ require("packs/front_end/post")
 require("packs/front_end/comment")
 require("packs/front_end/search")
 require("packs/front_end/dialog_info_user")
+require("packs/front_end/realtime")
 
 $(document).on("click", "[data-method]",function(e){
     let url = $(this).attr("href");

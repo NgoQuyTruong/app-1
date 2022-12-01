@@ -198,6 +198,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    socket.io-rails (2.3.0)
+      railties (>= 3.1)
     spring (4.1.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -262,6 +264,7 @@ DEPENDENCIES
   ransack (~> 2.4, >= 2.4.1)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  socket.io-rails
   spring
   stringex (~> 2.8, >= 2.8.5)
   turbolinks (~> 5)

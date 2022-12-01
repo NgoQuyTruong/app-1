@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     end
     
     def fetch_notifications
+      return [] unless current_user
       @notification = PostNotification.where(user_id: current_user.id)
     end
       
