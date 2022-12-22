@@ -209,7 +209,7 @@ class DialogInfoUser {
                     <!--  -->
                 </div>
                 <div>
-                    ${ !data.status_login ? this.renderLinkLogin() : this.renderFollowActions(data.status_follow) }
+                    ${ !data.status_login ? this.renderLinkLogin() : this.renderFollowActions(data.status_follow, data.user_data?.id) }
                 </div>
             </div>
         `)
@@ -220,10 +220,13 @@ class DialogInfoUser {
         `)
     }
 
-    renderFollowActions(follow_status) {
+    renderFollowActions(follow_status, user_id) {
+      console.log('user_id', user_id);
         if(follow_status) {
             return (`
                 <button class="btn btn-outline-primary btn-sm btn-unfollow">Hủy theo dõi</button>
+                <button class="btn btn-outline-primary btn-sm btn-chat" data-user="${user_id}">Trò Chuyện</button>
+
             `)
         }
         return (`
