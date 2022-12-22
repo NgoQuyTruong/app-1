@@ -41,6 +41,8 @@ class User < ApplicationRecord
   def followers_count
     followers.count
   end
-   
-  
+
+  def send_message_to_me
+    "chat/#{self.id}"
+  end
 end

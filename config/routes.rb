@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
   get "/love" => "love#index"
+  get "/chat" => "chat#index"
+  get "/chat/:to_user_id" => "chat#history"
+  post "/chat/:to_user_id" => "chat#create"
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
