@@ -155,6 +155,14 @@ ActiveRecord::Schema.define(version: 2022_12_22_064925) do
     t.integer "user_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "user_list", default: [], array: true
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.string "description"

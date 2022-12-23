@@ -42,7 +42,11 @@ class User < ApplicationRecord
     followers.count
   end
 
-  def send_message_to_me
-    "chat/#{self.id}"
+  def send_message_to_me(history)
+    history ? "#{self.id}" : "chat/#{self.id}"
+  end
+
+  def remote_user_last_messagese(remote_id)
+    Chat.where(from_user_id: self.id, to_user_id: remote_id)&.last
   end
 end

@@ -20,6 +20,8 @@ class ChatController < ApplicationController
     @remote_user_messages = Chat.where(from_user_id: params[:to_user_id], to_user_id: current_user.id)
     @history_messages = (@current_user_messages + @remote_user_messages).sort_by(&:created_at)
     @history_messages.sort_by(&:created_at)
+    @remote_user_last_messages = @remote_user_messages.last
+    @rooms = Room.all.select { |room| room.user_list.include? current_user.id.to_s }
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @chat }
