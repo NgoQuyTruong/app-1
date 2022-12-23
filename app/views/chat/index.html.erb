@@ -82,7 +82,7 @@
                             <ul class="list-unstyled chat-list" data-simplebar="" style="max-height: 410px;">
                                 <% @list.each do |user| %>
                                   <li class="active">
-                                    <a href="<%= user.send_message_to_me %>">
+                                    <a href="<%= user.send_message_to_me(false) %>">
                                         <div class="media">
                                             <div class="align-self-center mr-3">
                                                 <i class="mdi mdi-circle font-size-10"></i>
