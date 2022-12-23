@@ -243,34 +243,16 @@
                         <ul class="list-inline user-chat-nav text-right mb-0">
                             <li class="list-inline-item d-none d-sm-inline-block">
                                 <div class="dropdown">
-                                    <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-search-alt-2"></i>
+                                    <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="modal" data-target=".VideoCall">
+                                        <i class="bx bx-phone-call"></i>
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-md">
-                                        <form class="p-3">
-                                            <div class="form-group m-0">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </li>
                             <li class="list-inline-item  d-none d-sm-inline-block">
                                 <div class="dropdown">
-                                    <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-cog"></i>
+                                    <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="modal" data-target=".VideoCall">
+                                        <i class="bx bx-video"></i>
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">View Profile</a>
-                                        <a class="dropdown-item" href="#">Clear chat</a>
-                                        <a class="dropdown-item" href="#">Muted</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
-                                    </div>
                                 </div>
                             </li>
 
@@ -396,6 +378,36 @@
               <div class="table-responsive">
                   <label for="validationCustom01">First name</label>
                  <input type="text" class="form-control chat-input" placeholder="Room Name..">
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-primary creat-group" type="submit">Create Room</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!--Video Call Modal -->
+<div class="modal fade VideoCall" tabindex="-1" role="dialog" aria-labelledby="videoCallModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="videoCallModal">New Group</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="table-responsive call-window position-relative">
+                   <video id="peerVideo" autoPlay></video>
+                   <video id="localVideo" autoPlay muted class="position-absolute"></video>
+                    <div class="video-control">
+                        <button class="btn btn-primary creat-group" type="submit">1</button>
+                        <button class="btn btn-primary creat-group" type="submit">2</button>
+                        <button class="btn btn-primary creat-group" type="submit">3</button>
+                    </div>
               </div>
           </div>
           <div class="modal-footer">

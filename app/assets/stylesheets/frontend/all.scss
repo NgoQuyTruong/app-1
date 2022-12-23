@@ -434,3 +434,95 @@ width: 33px;
 height: 516px;
 overflow-y: auto;
 }
+
+.call-window {
+  #localVideo {
+		bottom: 0;
+		right: 0;
+		width: 20%;
+		height: 20%;
+	}
+	
+	#peerVideo {
+		width: 100%;
+		height: 100%;
+	}
+  .video-control {
+    position: absolute;
+    left: 37%;
+    top: 50%;
+  }
+}
+
+// .call-window {
+// 	&.active {
+// 		opacity: 1;
+// 		z-index: auto;
+		
+// 		.video-control {
+// 			z-index: auto;
+// 		}
+// 	}
+	
+// 	.video-control {
+// 		position: absolute;
+// 		bottom: 20px;
+// 		height: 72px;
+// 		width: 100%;
+// 		text-align: center;
+// 		opacity: 0;
+// 		z-index: -1;
+		
+		
+// 		&:hover {
+// 			opacity: 1;
+// 		}
+// 	}
+	
+// 	video {
+// 		position: absolute;
+// 	}
+	
+// 	#localVideo {
+// 		bottom: 0;
+// 		right: 0;
+// 		width: 20%;
+// 		height: 20%;
+// 	}
+	
+// 	#peerVideo {
+// 		width: 100%;
+// 		height: 100%;
+// 	}
+// }
+
+
+// .video-control, .call-modal {
+// 	.btn-action {
+// 		height: 50px;
+// 		width: '50px';
+// 		line-height: '50px';
+// 		margin: 0px 8px;
+// 		font-size: 1.4em;
+// 		text-align: center;
+// 		border-radius: 50%;
+// 		cursor: pointer;
+// 		transition-duration: 0.25s;
+		
+// 		&:hover {
+// 			opacity: 0.8;	
+// 		}
+		
+// 		&.hangup {
+// 			background-color: 'blue';
+// 		}
+		
+// 		&:not(.hangup) {
+// 			background-color: 'blue';
+			
+// 			&.disable {
+// 				background-color: 'red';
+// 			}
+// 		}
+// 	}
+// }
